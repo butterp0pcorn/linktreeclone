@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* CSS */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.animated-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right, rgb(175, 203, 227, 0.8),
+        rgb(225, 182, 103, 0.5), rgb(51, 214, 147, 0.8)); 
+    background-size: 400% 400%;
+    animation: animate-background 10s infinite ease-in-out; 
+    z-index: -100;
+}
+@keyframes animate-background {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+.logo{
+    top: 15px;
+    position: relative;
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    justify-content: center;
+    border: 2.4px #fff solid;
+    filter: drop-shadow(2px 2px 20px #345);
+}
+section p{
+    margin-top: 20px;
+    text-align: center;
+    color: aliceblue;
+    filter: drop-shadow(2px 2px 4px #345);
+}
+section p:first-of-type{
+    letter-spacing: 0.8px;
+}
+section p:last-of-type{
+    top: 10px;
+    font-weight: 500;
+}
+section a{
+    text-decoration: none;
+}
+.insta{
+    position: relative;
+    top: 1rem;
+}
+button{
+    padding: 13px 25px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    filter: drop-shadow(2px 2px 5px #345);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: linen;
+    color: #345;
+}
+button::after, button::before{
+    border: 3px solid #111;
+    content: "";
+    position: absolute;
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+    visibility: hidden;
+}
+button:hover::after{
+    visibility: visible;
+    transform: translate(-5px, -5px);
+}
+button:hover::before{
+    visibility: visible;
+    transform: translate(5px, 5px);
+}
+.icons-wrapper{
+    margin-top: 2.4rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.icons-wrapper::after{
+    content: '';
+    top: 3.3rem;
+    position: absolute;
+    width: 90%;
+    height: 5px;
+    background-color: rgb(37, 37, 37);
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+.icon{
+    display: inline-block;
+    font-size: 44px;
+    animation: float 5s ease-in-out infinite;
+}
+.ri-instagram-line{
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.ri-facebook-circle-line{
+    color: #1877f2;
+    animation-delay: 1s;
+}
+.ri-twitter-line{
+    color: #00acee;
+    animation-delay: 2s;
+}
+@keyframes float {
+    0%{
+        transform: translate(0);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+/* 
+    If you're just testing out this effect, make sure that you add a width and height to be able to view it.
+    As it sits right now, it assumes the element you want to animate the background on already has a width and height.
+    Add a linear gradient of your choice (I used a generator online for this). Set the background size to a very large
+    number since we are going to be animating the background position. This is important else the background will clip.
+    Create a keyframe animation and add 3 stops, 0%, 50%, 100%. You can add as many as you want to get different effects.
+    The first value in background position is for the X coordinate and the second value is for the Y. From here you can
+    test out values to get a unique animation. Keep in mind that you have to start and end with the same position else
+    you will get random jumps. In this example we start at the middle, then we animate add 100% on the X coordinate at the 50%
+    stop to move the background to the right. At the 100% mark we go back to the initial position. 
+    Lastly, add the animation to your element, here I used 10 seconds for the duration because it looks more fluid than a faster
+    or slower movement. Then set the animation to be infinite so that it keeps going on forever.
+*/
